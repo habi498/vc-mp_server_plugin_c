@@ -1,0 +1,34 @@
+Compiling the Plugin 
+===================
+On Windows (Default: 32 bit )
+----------
+Open command prompt and go to 'source' directory
+	gcc -m32 -shared vcmpsrvr.c -o "../plugins/vcmpsrvr86.dll"
+( To build 64 bit, use
+gcc -shared vcmpsrvr.c -o "../plugins/vcmpsrvr64.dll" 
+)
+This will create 'vcmpsrvr86.dll' or 'vcmpsrvr64.dll' in
+'plugins' folder
+
+On Linux ( 64 bit )
+--------
+Navigate to following directory
+	cd source
+	gcc -shared vcmpsrvr.c -o "../plugins/vcmpsrvr64.so" -fpic
+
+( To compile 32 bit plugin use
+	gcc -m32 -shared vcmpsrvr.c -o "../plugins/vcmpsrvr32.so" -fpic
+)
+This will create 'vcmpsrvr64.so' or 'vcmpsrvr32.so' in 'plugins' folder
+
+Structure of directory folder inorder to work previous instructions
+-----------------------------
+-plugins (folder)
+-source 
+   |
+   ----manual.txt
+   ----PluginAPI.h
+   ----vcmpsrvr.c
+-server32.exe ( or other versions according to 32 /64 bit  Win/Linux )
+-server.cfg
+-server_log.txt ( will be created )
